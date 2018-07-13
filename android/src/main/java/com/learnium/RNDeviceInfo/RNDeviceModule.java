@@ -168,7 +168,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
       }
     }
 
-    p.resolve(macAddress);    
+    p.resolve(macAddress);
   }
 
   @ReactMethod
@@ -240,20 +240,6 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     }
 
     String deviceName = "Unknown";
-
-    String permission = "android.permission.BLUETOOTH";
-    int res = this.reactContext.checkCallingOrSelfPermission(permission);
-    if (res == PackageManager.PERMISSION_GRANTED) {
-      try {
-        BluetoothAdapter myDevice = BluetoothAdapter.getDefaultAdapter();
-        if (myDevice != null) {
-          deviceName = myDevice.getName();
-        }
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
-
 
     try {
       if (Class.forName("com.google.android.gms.iid.InstanceID") != null) {
